@@ -630,6 +630,7 @@ TABLET
   }
 
   .foundation-image {
+    margin: 0 auto 40px;
     order: 1;
   }
 
@@ -650,6 +651,11 @@ MOBILE
 @media (max-width: 768px) {
   .foundation {
     padding: 70px 0 100px;
+  }
+
+  .foundation-image {
+    margin: 0 auto 40px;
+    order: 1;
   }
 
   .foundation h2 {
@@ -783,11 +789,19 @@ WHY YOU NEED US
   .problem-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .foundation-content {
+    margin-top: 40px;
+  }
 }
 
 @media (max-width: 768px) {
   .problems {
     padding: 90px 0;
+  }
+
+  .foundation-content {
+    margin-top: 20px;
   }
 
   .section-header h2 {
