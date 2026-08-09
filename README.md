@@ -1,128 +1,161 @@
-# 🎓 Flama CBT Platform
+# Flama CBT Platform
 
-![Status](https://img.shields.io/badge/status-in%20development-orange)
-![Tech](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JavaScript-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+A modern, responsive Computer-Based Testing (CBT) platform designed to support digital examinations for schools and educational institutions.
 
-A scalable **Computer-Based Testing (CBT) platform** designed for schools and institutions to conduct secure, efficient digital examinations.
+The platform is being developed as a multi-role system with dedicated interfaces for students, teachers, principals, school administrators, platform administrators, and public users.
 
 ---
 
-## 🚀 Overview
+## Overview
 
-Flama CBT is a digital examination system that enables institutions to:
+Flama CBT is a digital examination platform designed to simplify the creation, management, delivery, and monitoring of computer-based examinations.
 
-* Conduct exams online
-* Automate grading and result generation
-* Reduce administrative workload
-* Minimize exam malpractice
-* Monitor performance through analytics
+The platform provides different interfaces for the various users involved in the examination process, creating a connected ecosystem for schools and educational institutions.
 
----
+The frontend is being developed with a focus on:
 
-## ✨ Features (MVP)
+- Responsive design
+- Clean and reusable UI components
+- Consistent design systems
+- Accessible interfaces
+- Intuitive user experiences
+- Maintainable frontend architecture
+- Cross-device compatibility
 
-* 🔐 Secure authentication (Admin & Students)
-* 🧑‍💼 Admin dashboard for managing exams and users
-* 📝 Student exam interface with question navigation
-* ⏱️ Countdown timer for timed assessments
-* 💾 Auto-save functionality to prevent data loss
-* 📊 Automated grading system
-* 📈 Basic result display and performance tracking
+Backend development is scheduled to begin alongside the continued development of the frontend.
 
 ---
 
-## 🛠️ Tech Stack
+## Platform Interfaces
 
-* HTML
-* CSS
-* JavaScript
-* (React — planned for future versions)
+### Student Portal
+
+The Student Portal provides students with interfaces for:
+
+- Accessing their dashboard
+- Managing their profile
+- Viewing available examinations
+- Taking timed examinations
+- Navigating between questions
+- Tracking examination progress
+- Submitting examinations
+- Viewing examination results and reports
+
+### Teacher Dashboard
+
+The Teacher Dashboard provides interfaces for:
+
+- Managing examinations
+- Creating and managing questions
+- Monitoring students
+- Reviewing examination performance
+- Viewing reports and analytics
+
+### Principal Dashboard
+
+The Principal Dashboard provides school-level oversight of examination activities, including:
+
+- School performance
+- Student performance
+- Teacher activity
+- Examination monitoring
+- Analytics and reports
+
+### School Admin Dashboard
+
+The School Admin Dashboard provides interfaces for managing:
+
+- School information
+- Staff and users
+- School configuration
+- Subscriptions
+- Administrative activities
+
+### Platform Admin Dashboard
+
+The Platform Admin Dashboard provides platform-level management capabilities, including:
+
+- School management
+- User management
+- Platform activity
+- Subscription management
+- System analytics
+- Administrative operations
+
+### Public Website
+
+The public-facing website provides:
+
+- Homepage
+- Platform information
+- Features
+- Benefits
+- School registration/onboarding
+- Contact pages
+- Other public-facing content
 
 ---
 
-## 📁 Project Structure
+## Tech Stack
 
-```bash
+### Frontend
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+
+### Development Tools
+
+- Git
+- GitHub
+- Visual Studio Code
+- Figma
+
+The frontend is currently being implemented using Vanilla JavaScript without frontend frameworks.
+
+---
+
+## Project Structure
+
+```text
 flama-cbt-platform/
 │
-├── assets/
-│   ├── images/
-│   └── icons/
+├── student/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   └── pages/
 │
-├── css/
-│   ├── base/
-│   ├── components/
-│   ├── pages/
-│   └── main.css
+├── teacher/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   └── pages/
 │
-├── js/
-│   ├── components/
-│   ├── pages/
-│   └── utils/
+├── principal/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   └── pages/
 │
-├── pages/
-│   ├── login.html
-│   ├── onboarding.html
-│   ├── profile.html
-│   ├── report.html
-│   └── exam.html
+├── school-admin/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   └── pages/
 │
-├── index.html
-├── README.md
-└── .gitignore
-```
-
----
-
-## 🧠 Core Modules
-
-* Admin Management Dashboard
-* Student Examination Portal
-* Question Bank System
-* Exam Scheduling & Control
-* Automated Grading System
-* Result & Performance Analytics
-
----
-
-## ⚙️ Project Status
-
-🚧 Currently in **MVP Development Phase**
-
----
-
-## 🎯 Goals
-
-* Provide a reliable digital exam system for schools
-* Improve exam efficiency and speed
-* Ensure secure and scalable testing environments
-* Deliver a user-friendly experience for both admins and students
-
----
-
-## 🚀 Future Improvements
-
-* Anti-cheating mechanisms (tab-switch detection, fullscreen mode)
-* Question randomization and shuffling
-* Advanced analytics dashboard
-* Parent access to student performance
-* Full mobile optimization
-
----
-
-## 🤝 Contributors
-
-Developed by **Flama-Tech Global Service**
-
----
-
-## 📬 Contact
-
-For collaboration or inquiries:
-📧 [flamatech26@gmail.com]
-
----
-
-> Building the future of digital examinations 🚀
-
+├── platform-admin/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   └── pages/
+│
+├── website/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   └── pages/
+│
+├── .gitignore
+├── LICENSE
+└── README.md
