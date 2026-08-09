@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Flama CBT Platform - Computer-Based Testing platform for schools and educational institutions."
+    />
+
+    <title>Flama CBT Platform</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Portal Styles -->
+    <style>
+      /* =========================================
+   RESET
+========================================= */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: "Inter", sans-serif;
+        color: #17201a;
+        background: #f7faf7;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      /* =========================================
+   VARIABLES
+========================================= */
+
+      :root {
+        --primary: #2e7d32;
+        --primary-dark: #256628;
+        --primary-light: #edf7ed;
+
+        --text-primary: #17201a;
+        --text-secondary: #66706a;
+        --border: #e3e9e4;
+
+        --white: #ffffff;
+        --background: #f7faf7;
+
+        --container: 1180px;
+
+        --shadow-sm: 0 2px 8px rgba(25, 45, 28, 0.04);
+
+        --shadow-md: 0 12px 35px rgba(25, 45, 28, 0.08);
+
+        --radius-lg: 18px;
+      }
+
+      /* =========================================
+   CONTAINER
+========================================= */
+
+      .container {
+        width: min(100% - 40px, var(--container));
+        margin-inline: auto;
+      }
+
+      /* =========================================
+   HEADER
+========================================= */
+
+      .site-header {
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .header-inner {
+        min-height: 76px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      /* Brand */
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+        place-items: center;
+
+        background: var(--primary);
+        color: var(--white);
+
+        border-radius: 10px;
+
+        font-size: 20px;
+        font-weight: 800;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+      }
+
+      .brand-name {
+        font-size: 17px;
+        font-weight: 800;
+      }
+
+      .brand-subtitle {
+        margin-top: 3px;
+
+        color: var(--text-secondary);
+
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      /* Environment */
+
+      .environment-badge {
+        padding: 7px 12px;
+
+        border: 1px solid #d9e8da;
+        border-radius: 999px;
+
+        background: var(--primary-light);
+        color: var(--primary-dark);
+
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      /* =========================================
+   HERO
+========================================= */
+
+      .hero {
+        padding: 82px 0 64px;
+
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(46, 125, 50, 0.09),
+            transparent 34%
+          ),
+          var(--background);
+      }
+
+      .hero-content {
+        max-width: 780px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        display: inline-block;
+
+        margin-bottom: 16px;
+
+        color: var(--primary);
+
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+      }
+
+      .hero h1 {
+        color: var(--text-primary);
+
+        font-size: clamp(38px, 6vw, 62px);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+        font-weight: 800;
+      }
+
+      .hero p {
+        max-width: 680px;
+
+        margin: 22px auto 0;
+
+        color: var(--text-secondary);
+
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      /* =========================================
+   PORTALS
+========================================= */
+
+      .portals {
+        padding: 0 0 90px;
+
+        background: var(--background);
+      }
+
+      .section-heading {
+        margin-bottom: 30px;
+      }
+
+      .section-heading h2 {
+        color: var(--text-primary);
+
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+      }
+
+      .section-heading p {
+        margin-top: 5px;
+
+        color: var(--text-secondary);
+
+        font-size: 14px;
+      }
+
+      /* =========================================
+   GRID
+========================================= */
+
+      .portal-grid {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 20px;
+      }
+
+      /* =========================================
+   PORTAL CARD
+========================================= */
+
+      .portal-card {
+        min-height: 300px;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 26px;
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+
+        box-shadow: var(--shadow-sm);
+
+        transition:
+          transform 220ms ease,
+          box-shadow 220ms ease,
+          border-color 220ms ease;
+      }
+
+      .portal-card:hover {
+        transform: translateY(-5px);
+
+        border-color: rgba(46, 125, 50, 0.28);
+
+        box-shadow: var(--shadow-md);
+      }
+
+      .portal-card:focus-visible {
+        outline: 3px solid rgba(46, 125, 50, 0.25);
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+   CARD ICON
+========================================= */
+
+      .card-icon {
+        width: 54px;
+        height: 54px;
+
+        display: grid;
+        place-items: center;
+
+        margin-bottom: 25px;
+
+        border-radius: 14px;
+
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .student-icon {
+        background: #edf7ed;
+        color: #2e7d32;
+      }
+
+      .teacher-icon {
+        background: #eef5ff;
+        color: #2563a6;
+      }
+
+      .principal-icon {
+        background: #f4efff;
+        color: #7045a5;
+      }
+
+      .school-admin-icon {
+        background: #fff5e8;
+        color: #a56418;
+      }
+
+      .admin-icon {
+        background: #f1f2f4;
+        color: #4b5563;
+      }
+
+      .website-icon {
+        background: #eaf7f6;
+        color: #187a72;
+      }
+
+      /* =========================================
+   CARD CONTENT
+========================================= */
+
+      .card-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .card-label {
+        margin-bottom: 7px;
+
+        color: var(--text-secondary);
+
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .card-content h3 {
+        color: var(--text-primary);
+
+        font-size: 21px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+      }
+
+      .card-content p {
+        margin-top: 10px;
+
+        color: var(--text-secondary);
+
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        margin-top: auto;
+        padding-top: 24px;
+
+        color: var(--primary);
+
+        font-size: 13px;
+        font-weight: 700;
+
+        transition: gap 180ms ease;
+      }
+
+      .portal-card:hover .card-link {
+        gap: 12px;
+      }
+
+      /* =========================================
+   FOOTER
+========================================= */
+
+      .site-footer {
+        background: var(--white);
+
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-inner {
+        min-height: 72px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .footer-inner p,
+      .footer-inner span {
+        color: var(--text-secondary);
+
+        font-size: 12px;
+      }
+
+      /* =========================================
+   TABLET
+========================================= */
+
+      @media (max-width: 900px) {
+        .hero {
+          padding: 65px 0 50px;
+        }
+
+        .portal-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* =========================================
+   MOBILE
+========================================= */
+
+      @media (max-width: 600px) {
+        .container {
+          width: min(100% - 28px, var(--container));
+        }
+
+        .header-inner {
+          min-height: 68px;
+        }
+
+        .brand-mark {
+          width: 38px;
+          height: 38px;
+
+          font-size: 18px;
+        }
+
+        .brand-name {
+          font-size: 15px;
+        }
+
+        .brand-subtitle {
+          font-size: 10px;
+        }
+
+        .environment-badge {
+          padding: 6px 9px;
+
+          font-size: 9px;
+        }
+
+        .hero {
+          padding: 55px 0 45px;
+        }
+
+        .hero h1 {
+          font-size: 38px;
+        }
+
+        .hero p {
+          margin-top: 18px;
+
+          font-size: 14px;
+          line-height: 1.7;
+        }
+
+        .portals {
+          padding-bottom: 60px;
+        }
+
+        .section-heading {
+          margin-bottom: 20px;
+        }
+
+        .section-heading h2 {
+          font-size: 21px;
+        }
+
+        .portal-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .portal-card {
+          min-height: 260px;
+          padding: 22px;
+        }
+
+        .footer-inner {
+          min-height: auto;
+
+          padding: 20px 0;
+
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================================
+       HEADER
+  ================================= -->
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="./index.html" class="brand">
+          <div class="brand-mark">F</div>
+
+          <div class="brand-text">
+            <span class="brand-name">Flama</span>
+            <span class="brand-subtitle">CBT Platform</span>
+          </div>
+        </a>
+
+        <span class="environment-badge"> Frontend Demo </span>
+      </div>
+    </header>
+
+    <!-- ================================
+       MAIN
+  ================================= -->
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-content">
+          <span class="eyebrow"> COMPUTER-BASED TESTING PLATFORM </span>
+
+          <h1>Flama CBT Platform</h1>
+
+          <p>
+            A modern digital examination platform designed to support students,
+            teachers, school administrators, principals, and platform
+            administrators.
+          </p>
+        </div>
+      </section>
+
+      <!-- Portal Cards -->
+      <section class="portals">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Explore the Platform</h2>
+
+            <p>Select a portal to explore its frontend interface.</p>
+          </div>
+
+          <div class="portal-grid">
+            <!-- Student -->
+            <a
+              href="./student/index.html"
+              class="portal-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-icon student-icon">
+                <span>ST</span>
+              </div>
+
+              <div class="card-content">
+                <span class="card-label">STUDENT PORTAL</span>
+
+                <h3>Student</h3>
+
+                <p>
+                  Access examinations, manage your profile, track progress, and
+                  view results.
+                </p>
+
+                <span class="card-link">
+                  Open Portal
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+
+            <!-- Teacher -->
+            <a
+              href="./teacher/index.html"
+              class="portal-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-icon teacher-icon">
+                <span>TC</span>
+              </div>
+
+              <div class="card-content">
+                <span class="card-label">TEACHER DASHBOARD</span>
+
+                <h3>Teacher</h3>
+
+                <p>
+                  Manage examinations, questions, students, assessments, and
+                  performance.
+                </p>
+
+                <span class="card-link">
+                  Open Dashboard
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+
+            <!-- Principal -->
+            <a
+              href="./principal/index.html"
+              class="portal-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-icon principal-icon">
+                <span>PR</span>
+              </div>
+
+              <div class="card-content">
+                <span class="card-label">PRINCIPAL DASHBOARD</span>
+
+                <h3>Principal</h3>
+
+                <p>
+                  Monitor school-wide examinations, performance, teachers,
+                  students, and analytics.
+                </p>
+
+                <span class="card-link">
+                  Open Dashboard
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+
+            <!-- School Admin -->
+            <a
+              href="./school-admin/index.html"
+              class="portal-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-icon school-admin-icon">
+                <span>SA</span>
+              </div>
+
+              <div class="card-content">
+                <span class="card-label">SCHOOL ADMIN</span>
+
+                <h3>School Admin</h3>
+
+                <p>
+                  Manage school information, staff, users, subscriptions, and
+                  configuration.
+                </p>
+
+                <span class="card-link">
+                  Open Dashboard
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+
+            <!-- Platform Admin -->
+            <a
+              href="#"
+              class="portal-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-icon admin-icon">
+                <span>AD</span>
+              </div>
+
+              <div class="card-content">
+                <span class="card-label">PLATFORM ADMIN</span>
+
+                <h3>Platform Admin</h3>
+
+                <p>
+                  Manage schools, users, subscriptions, analytics, and platform
+                  operations.
+                </p>
+
+                <span class="card-link">
+                  Open Dashboard
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+
+            <!-- Public Website -->
+            <a
+              href="./website/index.html"
+              class="portal-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-icon website-icon">
+                <span>WB</span>
+              </div>
+
+              <div class="card-content">
+                <span class="card-label">PUBLIC WEBSITE</span>
+
+                <h3>Website</h3>
+
+                <p>
+                  Explore the public-facing website, platform features, and
+                  school onboarding.
+                </p>
+
+                <span class="card-link">
+                  Visit Website
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================================
+       FOOTER
+  ================================= -->
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          © <span id="current-year"></span> Flama-Tech Global Service. All
+          rights reserved.
+        </p>
+
+        <span> Flama CBT Platform </span>
+      </div>
+    </footer>
+
+    <!-- ================================
+       JAVASCRIPT
+  ================================= -->
+
+    <script>
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
