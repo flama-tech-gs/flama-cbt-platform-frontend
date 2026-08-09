@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Teacher Login | Mobayo Academic</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+
+  <body>
+    <main class="login-page">
+      <!-- ======================
+             HEADER
+        ======================= -->
+
+      <section class="brand-section">
+        <img
+          src="assets/logo.png"
+          alt="Mobayo Academic Logo"
+          class="school-logo"
+        />
+
+        <h1>Mobayo Academic</h1>
+
+        <p class="motto">...Knowledge, Discipline, Excellence...</p>
+      </section>
+
+      <!-- ======================
+            LOGIN TYPE
+        ======================= -->
+
+      <section class="login-switch">
+        <button class="active" type="button">Teacher Login</button>
+      </section>
+
+      <!-- ======================
+            LOGIN CARD
+        ======================= -->
+
+      <section class="login-card">
+        <form id="loginForm" novalidate>
+          <!-- Staff ID -->
+
+          <div class="form-group">
+            <label for="staffId"> Staff ID </label>
+
+            <input
+              type="text"
+              id="staffId"
+              placeholder="e.g TCH/2025/014"
+              autocomplete="username"
+              required
+            />
+
+            <small class="error-message" id="staffError"></small>
+          </div>
+
+          <!-- Password -->
+
+          <div class="form-group">
+            <label for="password"> Password </label>
+
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+              />
+
+              <button
+                type="button"
+                class="toggle-password"
+                aria-label="Toggle Password"
+              >
+                <img src="./assets/eye.png" id="eyeIcon" alt="Show Password" />
+              </button>
+            </div>
+
+            <small class="hint"> Password must be in Title Case </small>
+
+            <small class="error-message" id="passwordError"></small>
+          </div>
+
+          <!-- Forgot Password -->
+
+          <div class="forgot-password">
+            <a href="#"> Forgot Password? </a>
+          </div>
+
+          <!-- Login -->
+
+          <button class="login-btn" id="loginBtn" type="submit">
+            <span class="btn-text"> Login → </span>
+
+            <span class="loader hidden"> </span>
+          </button>
+        </form>
+      </section>
+
+      <!-- ======================
+             FOOTER
+        ======================= -->
+
+      <footer>
+        <p>
+          ....Access is restricted to registered students and staff only....
+        </p>
+      </footer>
+    </main>
+
+    <script src="js/login.js"></script>
+  </body>
+</html>

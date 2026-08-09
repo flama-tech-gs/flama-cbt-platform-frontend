@@ -1,0 +1,210 @@
+/* ==========================================
+TOOLBAR
+========================================== */
+
+.broadcast-toolbar {
+  display: flex;
+
+  justify-content: flex-end;
+
+  margin: 2rem 0;
+}
+
+.primary-btn {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.7rem;
+
+  padding: 1rem 2rem;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 14px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================
+LIST
+========================================== */
+
+#broadcastList {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2rem;
+}
+
+/* ==========================================
+CARD
+========================================== */
+
+.broadcast-card {
+  background: #fff;
+
+  border-radius: 18px;
+
+  padding: 2rem;
+
+  box-shadow: var(--shadow-sm);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+.broadcast-left {
+  flex: 1;
+}
+
+.broadcast-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+
+  flex-wrap: wrap;
+}
+
+.broadcast-top h3 {
+  font-size: 1.063rem;
+
+  font-weight: 700;
+
+  color: #222;
+}
+
+/* ==========================================
+BADGES
+========================================== */
+
+.broadcast-badge {
+  padding: 0.55rem 1rem;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+.badge-green {
+  background: #ddf2dc;
+
+  color: var(--primary);
+}
+
+.badge-orange {
+  background: #fff1d9;
+
+  color: #c77c02;
+}
+
+.badge-gray {
+  background: #efefef;
+
+  color: #666;
+}
+
+/* ==========================================
+MESSAGE
+========================================== */
+
+.broadcast-message {
+  font-size: 0.938rem;
+
+  line-height: 1.8;
+
+  color: #555;
+
+  margin-bottom: 1rem;
+}
+
+.broadcast-delivered {
+  color: var(--primary);
+
+  font-weight: 600;
+
+  font-size: 0.813rem;
+}
+
+/* ==========================================
+DATE
+========================================== */
+
+.broadcast-date {
+  min-width: 170px;
+
+  text-align: right;
+
+  color: #999;
+
+  font-size: 1rem;
+
+  white-space: nowrap;
+}
+
+/* ==========================================
+RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+  .broadcast-card {
+    flex-direction: column;
+  }
+
+  .broadcast-date {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .broadcast-toolbar {
+    justify-content: stretch;
+  }
+
+  .primary-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .broadcast-top h3 {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .broadcast-card {
+    padding: 1.5rem;
+  }
+}
+
+/* container */
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 32px 40px;
+}
