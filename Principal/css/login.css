@@ -1,285 +1,277 @@
-/* ==========================================
-RESET
-========================================== */
-
-* {
+/* body {
+  font-family: inter;
+  background: #ffffff;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Inter, sans-serif;
-
-  background: #ffffff;
-
-  color: #2f2f2f;
-}
-
-a {
-  text-decoration: none;
-}
-
-/* ==========================================
-PAGE
-========================================== */
+} */
 
 .login-page {
   min-height: 100vh;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
-
-  padding: 3rem 1.5rem;
-}
-
-/* ==========================================
-LOGO
-========================================== */
-
-.login-brand {
+  gap: 30px;
   text-align: center;
-
-  margin-bottom: 4rem;
+  padding: 20px;
 }
 
-.school-logo {
-  width: 70px;
-
-  margin-bottom: 1rem;
+/* Header */
+.login-header .logo {
+  width: 60px;
+  margin-bottom: 10px;
 }
 
-.login-brand h1 {
-  font-size: 1.5rem;
-
+.login-header h1 {
   color: #2e7d32;
-
+  font-size: 24px;
   font-weight: 700;
-
-  margin-bottom: 0.75rem;
+  line-height: 32px;
 }
 
-.login-brand p {
-  font-size: 1.125rem;
-
-  color: #6da56b;
+.tagline {
+  color: #6da470;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
 }
 
-/* ==========================================
-CARD
-========================================== */
-
+/* Card */
 .login-card {
-  width: 100%;
-
-  max-width: 430px;
-
   background: #fff;
-
-  border-radius: 18px;
-
-  padding: 2rem;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-
-  margin-bottom: 5rem;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* ==========================================
-FORM
-========================================== */
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 .form-group {
-  margin-bottom: 2rem;
+  text-align: left;
 }
 
 .form-group label {
-  display: block;
-
-  margin-bottom: 0.8rem;
-
-  color: #6da56b;
-
-  font-size: 1.25rem;
-
+  font-size: 20px;
   font-weight: 500;
+  line-height: 28px;
+  color: #2e7d32;
+  margin-bottom: 6px;
+  display: block;
 }
 
+/* Inputs */
 .form-group input {
   width: 100%;
-
-  height: 64px;
-
+  padding: 12px;
+  border-radius: 8px;
   border: none;
-
+  background: #e8f5e9;
   outline: none;
-
-  border-radius: 14px;
-
-  padding: 0 1.2rem;
-
-  background: #eaf8e8;
-
-  font-size: 1rem;
-
-  color: #333;
+  transition: all 0.3s ease;
 }
 
-.form-group input::placeholder {
-  color: #b8c8b8;
+.form-group input:focus {
+  background: #f3f0f0;
+  border: 2px solid #4caf50;
+  box-shadow: 0 0 0 2px #2e7d32;
 }
 
-/* ==========================================
-PASSWORD
-========================================== */
-
+/* Password */
 .password-wrapper {
   position: relative;
 }
 
-.password-wrapper button {
+.toggle-password {
   position: absolute;
-
-  right: 18px;
-
+  right: 10px;
   top: 50%;
-
   transform: translateY(-50%);
-
-  background: none;
-
-  border: none;
-
   cursor: pointer;
-
-  color: #b8c8b8;
 }
 
-.password-wrapper i {
-  width: 22px;
+.hint {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: #9ca3af;
 
-  height: 22px;
+  margin-top: 4px;
 }
 
-.form-group small {
-  display: block;
-
-  margin-top: 0.8rem;
-
-  color: #d0d0d0;
+/* Forgot */
+.forgot {
+  text-align: right;
 }
 
-/* ==========================================
-FORGOT
-========================================== */
+.forgot a {
+  font-size: 16px;
+  color: #646464;
+  text-decoration: none;
+}
 
-.forgot-password {
+/* Button */
+.login-btn {
+  padding: 14px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #4caf50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* Footer */
+.access-note {
+  font-size: 18px;
+  font-weight: 500;
+  color: #646464;
+}
+
+.change-color {
+  /* width: 100%;
+  height: 5px; */
+  animation: changeColor 2s infinite alternate;
+}
+@keyframes changeColor {
+  0% {
+    color: #646464;
+  }
+
+  50% {
+    color: red;
+  }
+
+  100% {
+    color: #f97316;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+  }
+
+  .login-header h1 {
+    font-size: 20px;
+  }
+}
+
+/* FOR ERROR STATE  */
+
+/* Invalid Input State */
+.input-error {
+  border: 2px solid #e53935 !important;
+  background: #ffeaea !important;
+  color: #e53935;
+}
+
+.input-error::placeholder {
+  color: #e57373;
+}
+
+/* Error message */
+.error-message {
+  color: #e53935;
+  font-size: 1.3rem;
+  margin-top: 6px;
+  display: none;
+}
+
+/* section for the popup message */
+
+/* MODAL OVERLAY */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+
   display: flex;
+  align-items: center;
+  justify-content: center;
 
-  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
 
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+/* SHOW MODAL */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* MODAL BOX */
+.forgot-modal {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+
+  padding: 2rem;
+  border-radius: 18px;
+  border: 1px solid #256528;
+
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+
+  animation: popup 0.3s ease;
+}
+
+.forgot-modal h3 {
+  font-size: 1.5rem;
+  color: #ba3f3f;
+  margin-bottom: 1.5rem;
+}
+
+.forgot-modal p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #2e7d32;
   margin-bottom: 2rem;
 }
 
-.forgot-password a {
-  color: #555;
-
-  font-size: 1rem;
-}
-
-/* ==========================================
-BUTTON
-========================================== */
-
-.btn-primary {
-  width: 100%;
-
-  height: 60px;
-
+.forgot-modal button {
   border: none;
-
-  border-radius: 14px;
-
   background: #2e7d32;
-
   color: #fff;
 
-  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
 
-  font-weight: 600;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 0.6rem;
-
+  font-size: 1.25rem;
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
-.btn-primary:hover {
-  background: #256729;
+.forgot-modal button:hover {
+  background: #256528;
 }
 
-.btn-primary i {
-  width: 20px;
-
-  height: 20px;
-}
-
-/* ==========================================
-FOOTER
-========================================== */
-
-.portal-note {
-  font-size: 1.1rem;
-
-  color: #555;
-
-  text-align: center;
-}
-
-/* ==========================================
-RESPONSIVE
-========================================== */
-
-@media (max-width: 768px) {
-  .login-brand {
-    margin-bottom: 3rem;
+@keyframes popup {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
   }
 
-  .login-brand h1 {
-    font-size: 1.9rem;
-  }
-
-  .form-group label {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .login-card {
-    padding: 1.5rem;
-  }
-
-  .school-logo {
-    width: 60px;
-  }
-
-  .login-brand h1 {
-    font-size: 1.7rem;
-  }
-
-  .portal-note {
-    font-size: 0.95rem;
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }

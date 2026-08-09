@@ -3,75 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Principal Login</title>
+    <title>Login | Principal Dashboard</title>
 
     <link rel="stylesheet" href="./css/login.css" />
   </head>
+
   <body>
-    <div class="login-page">
-      <!-- Logo -->
-
-      <div class="login-brand">
-        <img src="./assets/logo.png" alt="School Logo" class="school-logo" />
-
+    <main class="login-page">
+      <!-- HEADER -->
+      <section class="login-header">
+        <img src="./assets/logo.png" alt="School Logo" class="logo" />
         <h1>Mobayo Academic</h1>
+        <p class="tagline">...Knowledge, Discipline, Excellence...</p>
+      </section>
 
-        <p>...Knowledge, Discipline, Excellence...</p>
-      </div>
-
-      <!-- Login Card -->
-
-      <div class="login-card">
-        <form id="loginForm">
+      <!-- CARD -->
+      <section class="login-card">
+        <form class="login-form">
+          <!-- Email Address -->
           <div class="form-group">
             <label>Email Address</label>
-
             <input
               type="email"
-              id="email"
+              id=""
               placeholder="e.g principal@mobayoacademic.edu"
+              required
             />
+
+            <small class="error-message" id="accessError">
+              Invalid email address
+            </small>
           </div>
 
+          <!-- Password -->
           <div class="form-group">
             <label>Password</label>
 
             <div class="password-wrapper">
               <input
                 type="password"
-                id="password"
                 placeholder="enter password"
+                id="password"
+                required
               />
-
-              <button type="button" id="togglePassword">
-                <i data-lucide="eye-off"></i>
-              </button>
+              <span class="toggle-password" id="togglePassword">👁️</span>
             </div>
 
-            <small> Minimum 8 characters. </small>
+            <small class="hint">Password must be in title case</small>
+
+            <small class="error-message" id="passwordError">
+              Incorrect password
+            </small>
           </div>
 
-          <div class="forgot-password">
-            <a href="#"> Forget password? </a>
+          <!-- Forgot -->
+          <div class="forgot">
+            <a href="#" id="forgotPasswordLink">Forget password?</a>
           </div>
 
-          <button class="btn-primary" type="submit">
-            Login
+          <!-- FORGOT PASSWORD MODAL -->
+          <div class="modal-overlay" id="forgotModal">
+            <div class="forgot-modal">
+              <h3>⚠ Password Change Restricted</h3>
 
-            <i data-lucide="arrow-right"></i>
-          </button>
+              <p>
+                Please contact the school authority to recover or reset your
+                password.
+              </p>
+
+              <button id="closeModal">Okay</button>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <button type="submit" class="login-btn">Login →</button>
         </form>
-      </div>
+      </section>
 
-      <!-- Footer -->
-
-      <p class="portal-note">
-        ....Principal Portal — Access restricted to authorized school
-        administrators only...
+      <!-- FOOTER -->
+      <p class="access-note change-color">
+        ...Access is restricted to registered students and staff only...
       </p>
-    </div>
-
-    <script src="https://unpkg.com/lucide@latest"></script>
+    </main>
 
     <script src="./js/login.js"></script>
   </body>
