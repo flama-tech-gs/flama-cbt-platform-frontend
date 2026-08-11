@@ -3,13 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
 
-    <meta
-      name="description"
-      content="Flama CBT Platform - Computer-Based Testing platform for schools and educational institutions."
-    />
-
-    <title>Flama CBT Platform</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/home2.css" />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,758 +16,872 @@
       rel="stylesheet"
     />
 
-    <!-- Portal Styles -->
-    <style>
-      /* =========================================
-   RESET
-========================================= */
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        min-height: 100vh;
-        font-family: "Inter", sans-serif;
-        color: #17201a;
-        background: #f7faf7;
-        line-height: 1.6;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      button,
-      a {
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      /* =========================================
-   VARIABLES
-========================================= */
-
-      :root {
-        --primary: #2e7d32;
-        --primary-dark: #256628;
-        --primary-light: #edf7ed;
-
-        --text-primary: #17201a;
-        --text-secondary: #66706a;
-        --border: #e3e9e4;
-
-        --white: #ffffff;
-        --background: #f7faf7;
-
-        --container: 1180px;
-
-        --shadow-sm: 0 2px 8px rgba(25, 45, 28, 0.04);
-
-        --shadow-md: 0 12px 35px rgba(25, 45, 28, 0.08);
-
-        --radius-lg: 18px;
-      }
-
-      /* =========================================
-   CONTAINER
-========================================= */
-
-      .container {
-        width: min(100% - 40px, var(--container));
-        margin-inline: auto;
-      }
-
-      /* =========================================
-   HEADER
-========================================= */
-
-      .site-header {
-        background: var(--white);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .header-inner {
-        min-height: 76px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      /* Brand */
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 11px;
-      }
-
-      .brand-mark {
-        width: 42px;
-        height: 42px;
-
-        display: grid;
-        place-items: center;
-
-        background: var(--primary);
-        color: var(--white);
-
-        border-radius: 10px;
-
-        font-size: 20px;
-        font-weight: 800;
-      }
-
-      .brand-text {
-        display: flex;
-        flex-direction: column;
-        line-height: 1.15;
-      }
-
-      .brand-name {
-        font-size: 17px;
-        font-weight: 800;
-      }
-
-      .brand-subtitle {
-        margin-top: 3px;
-
-        color: var(--text-secondary);
-
-        font-size: 11px;
-        font-weight: 500;
-      }
-
-      /* Environment */
-
-      .environment-badge {
-        padding: 7px 12px;
-
-        border: 1px solid #d9e8da;
-        border-radius: 999px;
-
-        background: var(--primary-light);
-        color: var(--primary-dark);
-
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-      }
-
-      /* =========================================
-   HERO
-========================================= */
-
-      .hero {
-        padding: 82px 0 64px;
-
-        background:
-          radial-gradient(
-            circle at top right,
-            rgba(46, 125, 50, 0.09),
-            transparent 34%
-          ),
-          var(--background);
-      }
-
-      .hero-content {
-        max-width: 780px;
-        text-align: center;
-      }
-
-      .eyebrow {
-        display: inline-block;
-
-        margin-bottom: 16px;
-
-        color: var(--primary);
-
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-      }
-
-      .hero h1 {
-        color: var(--text-primary);
-
-        font-size: clamp(38px, 6vw, 62px);
-        line-height: 1.08;
-        letter-spacing: -0.045em;
-        font-weight: 800;
-      }
-
-      .hero p {
-        max-width: 680px;
-
-        margin: 22px auto 0;
-
-        color: var(--text-secondary);
-
-        font-size: 17px;
-        line-height: 1.75;
-      }
-
-      /* =========================================
-   PORTALS
-========================================= */
-
-      .portals {
-        padding: 0 0 90px;
-
-        background: var(--background);
-      }
-
-      .section-heading {
-        margin-bottom: 30px;
-      }
-
-      .section-heading h2 {
-        color: var(--text-primary);
-
-        font-size: 24px;
-        font-weight: 800;
-        letter-spacing: -0.025em;
-      }
-
-      .section-heading p {
-        margin-top: 5px;
-
-        color: var(--text-secondary);
-
-        font-size: 14px;
-      }
-
-      /* =========================================
-   GRID
-========================================= */
-
-      .portal-grid {
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 20px;
-      }
-
-      /* =========================================
-   PORTAL CARD
-========================================= */
-
-      .portal-card {
-        min-height: 300px;
-
-        display: flex;
-        flex-direction: column;
-
-        padding: 26px;
-
-        background: var(--white);
-
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-
-        box-shadow: var(--shadow-sm);
-
-        transition:
-          transform 220ms ease,
-          box-shadow 220ms ease,
-          border-color 220ms ease;
-      }
-
-      .portal-card:hover {
-        transform: translateY(-5px);
-
-        border-color: rgba(46, 125, 50, 0.28);
-
-        box-shadow: var(--shadow-md);
-      }
-
-      .portal-card:focus-visible {
-        outline: 3px solid rgba(46, 125, 50, 0.25);
-        outline-offset: 3px;
-      }
-
-      /* =========================================
-   CARD ICON
-========================================= */
-
-      .card-icon {
-        width: 54px;
-        height: 54px;
-
-        display: grid;
-        place-items: center;
-
-        margin-bottom: 25px;
-
-        border-radius: 14px;
-
-        font-size: 13px;
-        font-weight: 800;
-      }
-
-      .student-icon {
-        background: #edf7ed;
-        color: #2e7d32;
-      }
-
-      .teacher-icon {
-        background: #eef5ff;
-        color: #2563a6;
-      }
-
-      .principal-icon {
-        background: #f4efff;
-        color: #7045a5;
-      }
-
-      .school-admin-icon {
-        background: #fff5e8;
-        color: #a56418;
-      }
-
-      .admin-icon {
-        background: #f1f2f4;
-        color: #4b5563;
-      }
-
-      .website-icon {
-        background: #eaf7f6;
-        color: #187a72;
-      }
-
-      /* =========================================
-   CARD CONTENT
-========================================= */
-
-      .card-content {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-      }
-
-      .card-label {
-        margin-bottom: 7px;
-
-        color: var(--text-secondary);
-
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-      }
-
-      .card-content h3 {
-        color: var(--text-primary);
-
-        font-size: 21px;
-        font-weight: 800;
-        letter-spacing: -0.025em;
-      }
-
-      .card-content p {
-        margin-top: 10px;
-
-        color: var(--text-secondary);
-
-        font-size: 13px;
-        line-height: 1.7;
-      }
-
-      .card-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-
-        margin-top: auto;
-        padding-top: 24px;
-
-        color: var(--primary);
-
-        font-size: 13px;
-        font-weight: 700;
-
-        transition: gap 180ms ease;
-      }
-
-      .portal-card:hover .card-link {
-        gap: 12px;
-      }
-
-      /* =========================================
-   FOOTER
-========================================= */
-
-      .site-footer {
-        background: var(--white);
-
-        border-top: 1px solid var(--border);
-      }
-
-      .footer-inner {
-        min-height: 72px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      .footer-inner p,
-      .footer-inner span {
-        color: var(--text-secondary);
-
-        font-size: 12px;
-      }
-
-      /* =========================================
-   TABLET
-========================================= */
-
-      @media (max-width: 900px) {
-        .hero {
-          padding: 65px 0 50px;
-        }
-
-        .portal-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      /* =========================================
-   MOBILE
-========================================= */
-
-      @media (max-width: 600px) {
-        .container {
-          width: min(100% - 28px, var(--container));
-        }
-
-        .header-inner {
-          min-height: 68px;
-        }
-
-        .brand-mark {
-          width: 38px;
-          height: 38px;
-
-          font-size: 18px;
-        }
-
-        .brand-name {
-          font-size: 15px;
-        }
-
-        .brand-subtitle {
-          font-size: 10px;
-        }
-
-        .environment-badge {
-          padding: 6px 9px;
-
-          font-size: 9px;
-        }
-
-        .hero {
-          padding: 55px 0 45px;
-        }
-
-        .hero h1 {
-          font-size: 38px;
-        }
-
-        .hero p {
-          margin-top: 18px;
-
-          font-size: 14px;
-          line-height: 1.7;
-        }
-
-        .portals {
-          padding-bottom: 60px;
-        }
-
-        .section-heading {
-          margin-bottom: 20px;
-        }
-
-        .section-heading h2 {
-          font-size: 21px;
-        }
-
-        .portal-grid {
-          grid-template-columns: 1fr;
-          gap: 14px;
-        }
-
-        .portal-card {
-          min-height: 260px;
-          padding: 22px;
-        }
-
-        .footer-inner {
-          min-height: auto;
-
-          padding: 20px 0;
-
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-    </style>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-
   <body>
-    <!-- ================================
-       HEADER
-  ================================= -->
+    <!-- Part 1: Header -->
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="#" class="logo">
+            <span class="logo-icon"></span>
+            <span class="logo-text">CBTSCHOOL</span>
+          </a>
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="./index.html" class="brand">
-          <div class="brand-mark">F</div>
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle Navigation"
+          >
+            <i data-lucide="menu"></i>
+          </button>
 
-          <div class="brand-text">
-            <span class="brand-name">Flama</span>
-            <span class="brand-subtitle">CBT Platform</span>
+          <div class="nav-menu" id="navMenu">
+            <ul class="nav-links">
+              <li><a href="./index.html" class="active">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./pricing.html">Pricing</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <li><a href="./auth/register-step1.html">Get Started</a></li>
+              <li><a href="./auth/login.html">Login</a></li>
+            </ul>
           </div>
-        </a>
-
-        <span class="environment-badge"> Frontend Demo </span>
+        </nav>
       </div>
     </header>
 
-    <!-- ================================
-       MAIN
-  ================================= -->
+    <!-- ================= HERO ================= -->
 
-    <main>
-      <!-- Hero -->
-      <section class="hero">
-        <div class="container hero-content">
-          <span class="eyebrow"> COMPUTER-BASED TESTING PLATFORM </span>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-tag">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-dot-icon lucide-dot"
+            >
+              <circle cx="12" cy="12" r="1" />
+            </svg>
+            Exam control Platform for school
+            <img
+              src="./assets/Vector 2.png"
+              alt="icon"
+              class="hero-icon hero-icon-text"
+            />
+          </span>
 
-          <h1>Flama CBT Platform</h1>
+          <h1>
+            A bright start
+            <img
+              src="./assets/Group 1.png"
+              alt="icon"
+              class="hero-icon-image"
+            /><br />
+            For a Brighter <br />
+            Tomorrow
+            <img
+              src="./assets/Vector 1.png"
+              alt="icon"
+              class="hero-icon hero-icon-vector"
+            />
+          </h1>
 
           <p>
-            A modern digital examination platform designed to support students,
-            teachers, school administrators, principals, and platform
-            administrators.
+            "Empowering schools with a personalized online exam platform—
+            Register, Create, and Manage all your assessments in one secure
+            place."
+          </p>
+
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary"> Get Started </a>
+
+            <a href="#" class="btn btn-outline"> Contact Us </a>
+          </div>
+        </div>
+
+        <div class="hero-images">
+          <img src="./assets/Mask group.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LOGOS ================= -->
+
+    <section class="partners">
+      <div class="container">
+        <div class="partner-logos">
+          <img src="./assets/Logo.png" alt="" />
+          <img src="./assets/logo2.png" alt="" />
+          <img src="./assets/logo3.png" alt="" />
+          <img src="./assets/logo4.png" alt="" />
+          <img src="./assets/logo5.png" alt="" />
+          <img src="./assets/Logo.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 2 -->
+    <!-- Homepage  -->
+    <section class="foundation">
+      <div class="container foundation-grid">
+        <div class="foundation-image">
+          <img
+            src="./assets/Ellipse.png"
+            alt="Decorative background"
+            class="circle-bg"
+          />
+          <img
+            src="./assets/Children.png"
+            alt="Happy students"
+            class="kids-image"
+          />
+        </div>
+
+        <div class="foundation-content">
+          <span class="section-tag"> OUR FOUNDATION </span>
+
+          <h2>What We Stand For</h2>
+
+          <p class="section-description">
+            At CBT School, our values guide every feature we build — from exam
+            integrity to accessible learning for every student, everywhere.
+          </p>
+
+          <div class="foundation-list">
+            <div class="foundation-item">
+              <span class="dot"></span>
+
+              <div>
+                <h4>Integrity</h4>
+                <p>Exams protected by secure, transparent proctoring.</p>
+              </div>
+            </div>
+
+            <div class="foundation-item">
+              <span class="dot"></span>
+
+              <div>
+                <h4>Excellence</h4>
+                <p>Built to the highest standard of educational technology.</p>
+              </div>
+            </div>
+
+            <div class="foundation-item">
+              <span class="dot"></span>
+
+              <div>
+                <h4>Innovation</h4>
+                <p>Always improving how schools test and teach.</p>
+              </div>
+            </div>
+
+            <div class="foundation-item">
+              <span class="dot"></span>
+
+              <div>
+                <h4>Accessibility</h4>
+                <p>Affordable tools for every classroom, everywhere.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foundation-wave">
+        <img src="./assets/Union.png" alt="" class="wave-img" />
+      </div>
+    </section>
+
+    <!-- Part 3 -->
+    <!-- Homepage -->
+
+    <section class="problems">
+      <div class="problems-wave"><img src="./assets/Union2.png" alt="" /></div>
+
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"> THE PROBLEM WE SOLVE </span>
+
+          <h2>Why You Need Us</h2>
+
+          <p>
+            Paper exams are slow, error-prone, and hard to scale. CBT School
+            gives your institution a faster, fairer, fraud-resistant way to
+            test.
           </p>
         </div>
-      </section>
 
-      <!-- Portal Cards -->
-      <section class="portals">
-        <div class="container">
-          <div class="section-heading">
-            <h2>Explore the Platform</h2>
+        <div class="problem-grid">
+          <article class="problem-card">
+            <div class="problem-icon">
+              <i data-lucide="thumbs-down"></i>
+            </div>
 
-            <p>Select a portal to explore its frontend interface.</p>
+            <h3>Save Hours of Grading</h3>
+
+            <p>
+              Auto-graded objective exams free teachers from marking piles of
+              scripts.
+            </p>
+          </article>
+
+          <article class="problem-card">
+            <div class="problem-icon">
+              <i data-lucide="shield-alert"></i>
+            </div>
+
+            <h3>Stop Exam Malpractice</h3>
+
+            <p>
+              Randomized questions, timers and lockdown mode reduce cheating.
+            </p>
+          </article>
+
+          <article class="problem-card">
+            <div class="problem-icon">
+              <i data-lucide="sparkles"></i>
+            </div>
+
+            <h3>Real-Time Results</h3>
+
+            <p>
+              Teachers and administrators receive scores and analytics
+              immediately after exams.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 4 -->
+    <!-- Homepage -->
+
+    <section class="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"> WHAT WE OFFER </span>
+
+          <h2>Our Services</h2>
+
+          <p>
+            Everything a school needs to run secure, professional computer-based
+            tests — end to end.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card cream">
+            <span class="service-line green"></span>
+
+            <div class="service-icon green-bg">
+              <i data-lucide="briefcase"></i>
+            </div>
+
+            <h3>Exam Creation</h3>
+
+            <p>
+              Build CBT/objective exams in minutes with our question bank tools.
+            </p>
+          </article>
+
+          <article class="service-card mint">
+            <span class="service-line orange"></span>
+
+            <div class="service-icon orange-bg">
+              <i data-lucide="badge-help"></i>
+            </div>
+
+            <h3>Student Management</h3>
+
+            <p>Register, group and track students and classes with ease.</p>
+          </article>
+
+          <article class="service-card lavender">
+            <span class="service-line purple"></span>
+
+            <div class="service-icon purple-bg">
+              <i data-lucide="shield-check"></i>
+            </div>
+
+            <h3>Secure Proctoring</h3>
+
+            <p>Lockdown browser mode and timers deter exam malpractice.</p>
+          </article>
+
+          <article class="service-card blue">
+            <span class="service-line purple"></span>
+
+            <div class="service-icon purple-bg">
+              <i data-lucide="briefcase"></i>
+            </div>
+
+            <h3>Auto Grading</h3>
+
+            <p>Instant, accurate scoring for objective and theory questions.</p>
+          </article>
+
+          <article class="service-card yellow">
+            <span class="service-line green"></span>
+
+            <div class="service-icon green-bg">
+              <i data-lucide="sparkles"></i>
+            </div>
+
+            <h3>Analytics & Reports</h3>
+
+            <p>Performance insights per student, class and subject.</p>
+          </article>
+
+          <article class="service-card pink">
+            <span class="service-line orange"></span>
+
+            <div class="service-icon orange-bg">
+              <i data-lucide="users"></i>
+            </div>
+
+            <h3>Multi-School Access</h3>
+
+            <p>Manage several schools or branches from one dashboard.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 5 -->
+    <!-- Homepage -->
+
+    <section class="pricing">
+      <div class="pricing-overlay"></div>
+
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"> SIMPLE PRICING </span>
+
+          <h2>Our Pricing</h2>
+
+          <p>
+            Plans that scale from a single classroom to a whole network of
+            schools.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Starter -->
+
+          <article class="pricing-card">
+            <h3>Starter</h3>
+
+            <div class="price">
+              ₦15,000
+              <span>/month</span>
+            </div>
+
+            <p class="pricing-description">
+              For a single school getting started.
+            </p>
+
+            <hr />
+
+            <ul class="pricing-features">
+              <li><i data-lucide="check"></i>Up to 200 students</li>
+              <li><i data-lucide="check"></i>Unlimited exams</li>
+              <li><i data-lucide="check"></i>Auto grading</li>
+              <li><i data-lucide="check"></i>Email support</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary btn-hover"> Choose Plan </a>
+          </article>
+
+          <!-- Standard -->
+
+          <article class="pricing-card featured">
+            <span class="pricing-badge"> MOST POPULAR </span>
+
+            <h3>Standard</h3>
+
+            <div class="price">
+              ₦45,000
+              <span>/month</span>
+            </div>
+
+            <p class="pricing-description">
+              For growing schools with more classes.
+            </p>
+
+            <hr />
+
+            <ul class="pricing-features">
+              <li><i data-lucide="check"></i>Up to 1,000 students</li>
+              <li><i data-lucide="check"></i>Unlimited exams</li>
+              <li><i data-lucide="check"></i>Advanced analytics</li>
+              <li><i data-lucide="check"></i>Priority support</li>
+              <li><i data-lucide="check"></i>Lockdown proctoring</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary"> Choose Plan </a>
+          </article>
+
+          <!-- Enterprise -->
+
+          <article class="pricing-card">
+            <h3>Enterprise</h3>
+
+            <div class="price">Custom</div>
+
+            <p class="pricing-description">
+              For school networks & institutions.
+            </p>
+
+            <hr />
+
+            <ul class="pricing-features">
+              <li><i data-lucide="check"></i>Unlimited students</li>
+              <li><i data-lucide="check"></i>Multi-school dashboard</li>
+              <li><i data-lucide="check"></i>Dedicated account manager</li>
+            </ul>
+
+            <a href="#" class="btn btn-primary"> Choose Plan </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 6 -->
+    <!-- Homepage -->
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"> TESTIMONIALS </span>
+
+          <h2>Loved by Schools Everywhere</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="quote">
+              <i data-lucide="quote"></i>
+            </div>
+
+            <div class="stars">★★★★★</div>
+
+            <p class="testimonial-text">
+              CBT School cut our exam prep time in half and parents love how
+              transparent results are now.
+            </p>
+
+            <div class="testimonial-user">
+              <div class="avatar green-bg">AO</div>
+
+              <div>
+                <h4>Mrs. Adaeze Okafor</h4>
+
+                <span> Principal, Bright Future Academy </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="quote">
+              <i data-lucide="quote"></i>
+            </div>
+
+            <div class="stars">★★★★★</div>
+
+            <p class="testimonial-text">
+              Malpractice dropped to almost zero since we switched to the
+              lockdown mode for exams.
+            </p>
+
+            <div class="testimonial-user">
+              <div class="avatar orange-bg">TB</div>
+
+              <div>
+                <h4>Mr. Tunde Balogun</h4>
+
+                <span> Vice Principal, Kings College Prep </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <!-- <div class="quote"> -->
+            <div class="quote">
+              <i data-lucide="quote"></i>
+            </div>
+
+            <div class="stars">★★★★★</div>
+
+            <p class="testimonial-text">
+              Setting up a full term of exams now takes an afternoon instead of
+              a whole week.
+            </p>
+
+            <div class="testimonial-user">
+              <div class="avatar purple-bg">GU</div>
+
+              <div>
+                <h4>Mrs. Grace Umeh</h4>
+
+                <span> Exam Officer, St. Mary's High </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 7 -->
+    <!-- Homepage -->
+
+    <!-- =======================
+STATS
+======================= -->
+
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3 class="counter" data-target="500">500+</h3>
+            <p>Schools Onboarded</p>
           </div>
 
-          <div class="portal-grid">
-            <!-- Student -->
-            <a
-              href="./student/index.html"
-              class="portal-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="card-icon student-icon">
-                <span>ST</span>
-              </div>
+          <div class="stat-item">
+            <h3 class="counter" data-target="50000">50,000+</h3>
+            <p>Students Assessed</p>
+          </div>
 
-              <div class="card-content">
-                <span class="card-label">STUDENT PORTAL</span>
+          <div class="stat-item">
+            <h3 class="counter" data-target="1000000">1M+</h3>
+            <p>Exams Conducted</p>
+          </div>
 
-                <h3>Student</h3>
-
-                <p>
-                  Access examinations, manage your profile, track progress, and
-                  view results.
-                </p>
-
-                <span class="card-link">
-                  Open Portal
-                  <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </a>
-
-            <!-- Teacher -->
-            <a
-              href="./teacher/index.html"
-              class="portal-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="card-icon teacher-icon">
-                <span>TC</span>
-              </div>
-
-              <div class="card-content">
-                <span class="card-label">TEACHER DASHBOARD</span>
-
-                <h3>Teacher</h3>
-
-                <p>
-                  Manage examinations, questions, students, assessments, and
-                  performance.
-                </p>
-
-                <span class="card-link">
-                  Open Dashboard
-                  <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </a>
-
-            <!-- Principal -->
-            <a
-              href="./principal/index.html"
-              class="portal-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="card-icon principal-icon">
-                <span>PR</span>
-              </div>
-
-              <div class="card-content">
-                <span class="card-label">PRINCIPAL DASHBOARD</span>
-
-                <h3>Principal</h3>
-
-                <p>
-                  Monitor school-wide examinations, performance, teachers,
-                  students, and analytics.
-                </p>
-
-                <span class="card-link">
-                  Open Dashboard
-                  <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </a>
-
-            <!-- School Admin -->
-            <a
-              href="./school-admin/index.html"
-              class="portal-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="card-icon school-admin-icon">
-                <span>SA</span>
-              </div>
-
-              <div class="card-content">
-                <span class="card-label">SCHOOL ADMIN</span>
-
-                <h3>School Admin</h3>
-
-                <p>
-                  Manage school information, staff, users, subscriptions, and
-                  configuration.
-                </p>
-
-                <span class="card-link">
-                  Open Dashboard
-                  <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </a>
-
-            <!-- Platform Admin -->
-            <a
-              href="#"
-              class="portal-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="card-icon admin-icon">
-                <span>AD</span>
-              </div>
-
-              <div class="card-content">
-                <span class="card-label">PLATFORM ADMIN</span>
-
-                <h3>Platform Admin</h3>
-
-                <p>
-                  Manage schools, users, subscriptions, analytics, and platform
-                  operations.
-                </p>
-
-                <span class="card-link">
-                  Open Dashboard
-                  <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </a>
-
-            <!-- Public Website -->
-            <a
-              href="./website/index.html"
-              class="portal-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div class="card-icon website-icon">
-                <span>WB</span>
-              </div>
-
-              <div class="card-content">
-                <span class="card-label">PUBLIC WEBSITE</span>
-
-                <h3>Website</h3>
-
-                <p>
-                  Explore the public-facing website, platform features, and
-                  school onboarding.
-                </p>
-
-                <span class="card-link">
-                  Visit Website
-                  <span aria-hidden="true">→</span>
-                </span>
-              </div>
-            </a>
+          <div class="stat-item">
+            <h3>99.9%</h3>
+            <p>Platform Uptime</p>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <!-- ================================
-       FOOTER
-  ================================= -->
+    <!-- =======================
+TEAM
+======================= -->
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>
-          © <span id="current-year"></span> Flama-Tech Global Service. All
-          rights reserved.
-        </p>
+    <section class="team">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"> OUR PEOPLE </span>
 
-        <span> Flama CBT Platform </span>
+          <h2>Meet the Team</h2>
+
+          <p>
+            A small, dedicated team building the future of school assessments.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <img src="./assets/image-2.jpg" alt="Chidi Eze" />
+            <h3>Chidi Eze</h3>
+            <span>Founder & CEO</span>
+          </article>
+
+          <article class="team-card">
+            <img src="./assets/image-4.jpg" alt="Amina Nwosu" />
+            <h3>Amina Nwosu</h3>
+            <span>Head of Product</span>
+          </article>
+
+          <article class="team-card">
+            <img src="./assets/image-6.jpg" alt="Obinna Ibe" />
+            <h3>Obinna Ibe</h3>
+            <span>Lead Engineer</span>
+          </article>
+
+          <article class="team-card">
+            <img src="./assets/image-8.jpg" alt="Fatima Abdullahi" />
+            <h3>Fatima Abdullahi</h3>
+            <span>Customer Success</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 8 -->
+    <!-- Homepage -->
+
+    <section class="faq-cta">
+      <div class="container">
+        <div class="faq-grid">
+          <div class="faq-content">
+            <span class="section-tag"> GOT QUESTIONS? </span>
+
+            <h2>Asked Questions</h2>
+
+            <p>Reach out to our support team anytime.</p>
+
+            <a href="#" class="btn btn-primary"> Contact Support </a>
+          </div>
+
+          <div class="faq-image">
+            <img
+              src="./assets/image-5.png"
+              alt="School supplies illustration"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 9 -->
+    <!-- Homepage  -->
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-grid">
+          <div class="cta-content">
+            <span class="cta-tag"> READY TO GET STARTED? </span>
+
+            <h2>Bring Your School's Exams Online Today</h2>
+
+            <p>
+              Join hundreds of schools already running faster, fairer exams with
+              CBT School.
+            </p>
+
+            <div class="cta-buttons">
+              <a href="#" class="btn btn-primary"> Get Started </a>
+
+              <a href="#" class="btn btn-outline btn-light"> Contact Us </a>
+            </div>
+          </div>
+
+          <div class="cta-image">
+            <img
+              src="./assets/Smiling student.png"
+              alt="Happy student holding books"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 10 -->
+    <!-- Homepage -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand -->
+
+          <div class="footer-brand">
+            <a href="#" class="logo footer-logo">
+              <span class="logo-icon"></span>
+
+              <span class="logo-text"> CBTSCHOOL </span>
+            </a>
+
+            <p>
+              Empowering schools with a personalized online exam platform for a
+              brighter, more efficient tomorrow.
+            </p>
+
+            <div class="social-links">
+              <a href="#" aria-label="Facebook">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M14 8h3V4h-3c-3.1 0-5 1.9-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1Z"
+                  />
+                </svg>
+              </a>
+
+              <a href="#" aria-label="LinkedIn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-6a2 2 0 0 0-4 0v6H8v-7a6 6 0 0 1 6-6Z"
+                  />
+                  <path d="M6 9H2v12h4z" />
+                  <path d="M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                </svg>
+              </a>
+
+              <a href="#" aria-label="Twitter">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 4l16 16" />
+                  <path d="M20 4L4 20" />
+                </svg>
+              </a>
+
+              <a href="#" aria-label="Instagram">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Get Started</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+
+          <div class="footer-column">
+            <h4>Services</h4>
+
+            <ul>
+              <li><a href="#">Exam Creation</a></li>
+              <li><a href="#">Student Management</a></li>
+              <li><a href="#">Secure Proctoring</a></li>
+              <li><a href="#">Analytics & Reports</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+
+          <div class="footer-column">
+            <h4>Contact Us</h4>
+
+            <ul class="footer-contact">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 6h16v12H4z" />
+                  <path d="m4 7 8 6 8-6" />
+                </svg>
+                hello@cbtschool.com
+              </li>
+
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7l1 4.1a2 2 0 0 1-.6 2L8 10.5c1.5 3.2 4.1 5.8 7.3 7.3l1.7-1.4a2 2 0 0 1 2-.6l4.1 1a2 2 0 0 1 1.7 2Z"
+                  />
+                </svg>
+                +234 800 123 4567
+              </li>
+
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11Z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+                Lagos, Nigeria
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <p>© 2026 CBT School. All rights reserved.</p>
+
+          <div class="footer-policy">
+            <a href="#">Privacy Policy</a>
+
+            <span>•</span>
+
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
       </div>
     </footer>
 
-    <!-- ================================
-       JAVASCRIPT
-  ================================= -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="./js/home.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
-      document.getElementById("current-year").textContent =
-        new Date().getFullYear();
+      lucide.createIcons();
     </script>
   </body>
 </html>
