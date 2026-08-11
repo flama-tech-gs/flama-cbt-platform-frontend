@@ -150,12 +150,20 @@ flama-cbt-platform/
 │   ├── js/
 │   └── pages/
 │
-├── website/
-│   ├── assets/
+├── .gitignore
+├── LICENSE
+|__ assets
+|__ auth
+|   |__assets/
 │   ├── css/
 │   ├── js/
 │   └── pages/
-│
-├── .gitignore
-├── LICENSE
+|__ css
+|__ js
+|__ index.html
+|__ about.html
+|__ pricing.html
+|__ contact.html
 └── README.md
+
+```
