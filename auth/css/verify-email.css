@@ -194,6 +194,10 @@
 ========================================== */
 
 @media (max-width: 768px) {
+  .auth-main {
+    min-width: 0;
+  }
+
   .verification-card {
     padding: 2rem 1.5rem;
   }
@@ -226,5 +230,17 @@
     width: 42px;
     height: 42px;
     font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .otp-group {
+    gap: 0.25rem;
+  }
+
+  .otp-input {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
   }
 }

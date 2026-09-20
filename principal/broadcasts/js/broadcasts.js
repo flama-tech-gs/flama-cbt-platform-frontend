@@ -56,7 +56,7 @@ const container = document.getElementById("broadcastList");
 
 container.innerHTML = broadcasts
   .map(
-    (item) => `
+    (item, index) => `
 
 <div class="broadcast-card">
 
@@ -91,6 +91,14 @@ ${item.delivered}
 <div class="broadcast-date">
 
 ${item.date}
+
+<a class="edit-broadcast-btn" href="./new-broadcast.html?edit=${index}&title=${encodeURIComponent(item.title)}&message=${encodeURIComponent(item.message)}&audience=${encodeURIComponent(item.audience)}">
+
+<i data-lucide="pencil"></i>
+
+Edit
+
+</a>
 
 </div>
 

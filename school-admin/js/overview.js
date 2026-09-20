@@ -16,35 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
 =========================================*/
 
 function initializeIcons() {
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+  if (window.lucide) lucide.createIcons();
 }
 
 /*=========================================
-  COPY URL BUTTONS
+  COPY BUTTONS
 =========================================*/
 
 function initializeCopyButtons() {
-  const copyButtons = document.querySelectorAll(".portal-link .btn-primary");
+  const buttons = document.querySelectorAll(".copy-btn");
 
-  copyButtons.forEach((button) => {
+  buttons.forEach((button) => {
     button.addEventListener("click", async () => {
-      const url = button
-        .closest(".portal-link")
-        .querySelector(".portal-link__url span")
-        .textContent.trim();
+      const value =
+        button.dataset.copy || button.parentElement?.textContent.trim();
+
+      if (!value) return;
 
       try {
-        await navigator.clipboard.writeText(url);
+        await navigator.clipboard.writeText(value);
 
         const original = button.innerHTML;
 
-        button.innerHTML = `
-                    <i data-lucide="check"></i>
-                    Copied
-                `;
-
+        button.innerHTML = '<i data-lucide="check"></i> Copied';
         lucide.createIcons();
 
         setTimeout(() => {
@@ -82,24 +76,30 @@ function initializePortalLinks() {
 
 function initializeDropdown() {
   const dropdown = document.querySelector(".account-dropdown");
+  const menu = document.querySelector(".account-menu");
+  const logoutButton = document.querySelector(".account-menu__logout");
 
-  if (!dropdown) return;
+  if (!dropdown || !menu) return;
 
   dropdown.addEventListener("click", () => {
-    dropdown.classList.toggle("active");
+    const isOpen = menu.classList.toggle("show");
 
-    /*
-        =========================================
-        Backend Hook
+    dropdown.classList.toggle("active", isOpen);
+    dropdown.setAttribute("aria-expanded", String(isOpen));
+  });
 
-        Replace this with your dropdown menu.
+  document.addEventListener("click", (event) => {
+    if (dropdown.contains(event.target) || menu.contains(event.target)) return;
 
-        Example:
+    menu.classList.remove("show");
+    dropdown.classList.remove("active");
+    dropdown.setAttribute("aria-expanded", "false");
+  });
 
-        dropdownMenu.classList.toggle("show");
-
-        =========================================
-        */
+  logoutButton?.addEventListener("click", () => {
+    localStorage.removeItem("schoolRegistration");
+    sessionStorage.clear();
+    window.location.href = "../auth/login.html";
   });
 }
 

@@ -61,7 +61,7 @@
           <span>Expires Aug 20, 2026</span>
         </div>
 
-        <button class="account-dropdown">
+        <button class="account-dropdown" type="button" aria-expanded="false">
           <div class="account-avatar"></div>
 
           <div class="account-info">
@@ -72,6 +72,13 @@
 
           <i data-lucide="chevron-down"></i>
         </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
       </div>
     </header>
 
@@ -127,7 +134,7 @@
 
           <h3>Email Support</h3>
 
-          <p>Send us a message — reply within 24hrs.</p>
+          <p>Send us a message.</p>
 
           <button class="btn btn-outline" id="emailSupportBtn">
             Send Email
@@ -378,5 +385,6 @@
     </script>
 
     <script src="./js/support.js"></script>
+    <script src="./js/account-dropdown.js"></script>
   </body>
 </html>

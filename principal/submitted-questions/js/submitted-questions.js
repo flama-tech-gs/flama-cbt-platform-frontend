@@ -8,64 +8,36 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeFilters();
   initializeViewButtons();
 
-  if (typeof lucide !== "undefined") {
-    lucide.createIcons();
-  }
+  if (typeof lucide !== "undefined") lucide.createIcons();
 });
 
-/* ==========================================
-   ACCORDIONS
-========================================== */
-
 function initializeAccordions() {
-  const accordions = document.querySelectorAll(".accordion-toggle");
-
-  accordions.forEach((accordion) => {
+  document.querySelectorAll(".accordion-toggle").forEach((accordion) => {
     accordion.addEventListener("click", () => {
       const parent = accordion.parentElement;
-
       const content = accordion.nextElementSibling;
-
       const icon = accordion.querySelector("svg");
 
-      if (!content) return;
+      if (!content || !icon) return;
 
-      const isOpen = parent.classList.contains("open");
-
-      if (isOpen) {
-        parent.classList.remove("open");
-
-        content.style.display = "none";
-
-        icon.setAttribute("data-lucide", "chevron-down");
-      } else {
-        parent.classList.add("open");
-
-        content.style.display = "block";
-
-        icon.setAttribute("data-lucide", "chevron-up");
-      }
-
+      const isOpen = parent.classList.toggle("open");
+      content.style.display = isOpen ? "block" : "none";
+      icon.setAttribute("data-lucide", isOpen ? "chevron-up" : "chevron-down");
       lucide.createIcons();
     });
   });
 }
 
-/* ==========================================
-   SEARCH
-========================================== */
-
 function initializeSearch() {
   const searchInput = document.querySelector(".search-box input");
 
-  const rows = document.querySelectorAll("tbody tr");
+  if (!searchInput) return;
 
   searchInput.addEventListener("input", function () {
     const keyword = this.value.toLowerCase().trim();
 
-    rows.forEach((row) => {
+    document.querySelectorAll("tbody tr").forEach((row) => {
       const subject = row.children[0].textContent.toLowerCase();
-
       const teacher = row.children[1].textContent.toLowerCase();
 
       row.style.display =
@@ -74,69 +46,55 @@ function initializeSearch() {
   });
 }
 
-/* ==========================================
-   FILTERS
-========================================== */
-
 function initializeFilters() {
   const filterButton = document.querySelector(".apply-filter-btn");
+  const classFilter = document.querySelector(".class-filter");
+
+  if (!filterButton || !classFilter) return;
 
   filterButton.addEventListener("click", () => {
-    const year = document.querySelectorAll(".filter-card select")[0].value;
+    const selectedClass = classFilter.value.trim().toLowerCase();
 
-    const className = document.querySelectorAll(".filter-card select")[1].value;
+    document.querySelectorAll(".year-group").forEach((yearGroup) => {
+      const classGroups = yearGroup.querySelectorAll(
+        ":scope > .year-content > .class-group",
+      );
 
-    const subject = document.querySelectorAll(".filter-card select")[2].value;
+      if (!classGroups.length) return;
 
-    console.log({
-      year,
+      let hasMatch = false;
 
-      className,
+      classGroups.forEach((classGroup) => {
+        const classTitle = classGroup
+          .querySelector(".class-title")
+          ?.textContent.trim()
+          .toLowerCase();
+        const matches =
+          selectedClass === "all classes" || classTitle === selectedClass;
 
-      subject,
+        classGroup.hidden = !matches;
+        hasMatch ||= matches;
+      });
+
+      yearGroup.hidden = !hasMatch;
     });
-
-    // ======================================
-    // TODO:
-    // Backend filtering
-    // ======================================
   });
 }
 
-/* ==========================================
-   VIEW BUTTONS
-========================================== */
-
 function initializeViewButtons() {
-  const buttons = document.querySelectorAll(".view-btn");
-
-  buttons.forEach((button) => {
+  document.querySelectorAll(".view-btn").forEach((button) => {
     button.addEventListener("click", () => {
       const row = button.closest("tr");
 
-      const subject = row.children[0].textContent.trim();
-
-      const teacher = row.children[1].textContent.trim();
-
       console.log({
-        subject,
-
-        teacher,
+        subject: row.children[0].textContent.trim(),
+        teacher: row.children[1].textContent.trim(),
       });
-
-      // ======================================
-      // TODO:
-      // Navigate to Question Details
-      // ======================================
 
       window.location.href = "./review.html";
     });
   });
 }
-
-/* ==========================================
-   OPTIONAL HELPERS
-========================================== */
 
 function expandAllYears() {
   document.querySelectorAll(".year-group").forEach((group) => {
@@ -144,7 +102,6 @@ function expandAllYears() {
 
     if (content) {
       group.classList.add("open");
-
       content.style.display = "block";
     }
   });
@@ -156,7 +113,6 @@ function collapseAllYears() {
 
     if (content) {
       group.classList.remove("open");
-
       content.style.display = "none";
     }
   });

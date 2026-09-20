@@ -42,6 +42,23 @@ const note = document.getElementById("deliveryNote");
 
 let selected = 0;
 
+const editIndex = new URLSearchParams(window.location.search).get("edit");
+const editParams = new URLSearchParams(window.location.search);
+
+if (editIndex !== null && editParams.get("title")) {
+  document.getElementById("broadcastTitle").value = editParams.get("title");
+  document.getElementById("broadcastMessage").value =
+    editParams.get("message") || "";
+  selected = audienceOptions.findIndex(
+    (option) => option.title === editParams.get("audience"),
+  );
+
+  if (selected < 0) selected = 0;
+  document.querySelector(".topbar-title h1").textContent = "Edit Broadcast";
+  document.querySelector(".send-btn").innerHTML =
+    '<i data-lucide="save"></i> Update Broadcast';
+}
+
 renderAudience();
 
 function renderAudience() {

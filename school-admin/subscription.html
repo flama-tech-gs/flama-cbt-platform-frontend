@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="./css/overview.css" />
 
     <link rel="stylesheet" href="./css/subscription.css" />
+    <link rel="stylesheet" href="../css/pricing-cards.css" />
   </head>
 
   <body>
@@ -64,7 +65,7 @@
           <span>Expires Aug 20, 2026</span>
         </div>
 
-        <button class="account-dropdown">
+        <button class="account-dropdown" type="button" aria-expanded="false">
           <div class="account-avatar"></div>
 
           <div class="account-info">
@@ -75,6 +76,13 @@
 
           <i data-lucide="chevron-down"></i>
         </button>
+
+        <div class="account-menu" role="menu">
+          <button class="account-menu__logout" type="button" role="menuitem">
+            <i data-lucide="log-out"></i>
+            Logout
+          </button>
+        </div>
       </div>
     </header>
 
@@ -166,17 +174,15 @@
           <article class="pricing-card starter-plan" data-plan="starter">
             <h3>Starter</h3>
 
-            <div class="plan-price">
-              <span class="currency">₦</span>15,000
+            <div class="price">₦15,000 <span>/month</span></div>
 
-              <small>/month</small>
-            </div>
+            <p class="pricing-description">
+              For a single school getting started.
+            </p>
 
-            <p class="plan-description">For a single school getting started.</p>
+            <hr />
 
-            <div class="plan-divider"></div>
-
-            <ul class="plan-features">
+            <ul class="pricing-features">
               <li>
                 <i data-lucide="check"></i>
 
@@ -202,7 +208,7 @@
               </li>
             </ul>
 
-            <button class="btn btn-plan" data-plan="starter">
+            <button class="btn btn-primary btn-plan" data-plan="starter">
               Choose Plan
             </button>
           </article>
@@ -211,24 +217,20 @@
           <!-- STANDARD PLAN -->
           <!-- ===================================== -->
 
-          <article class="pricing-card featured-plan" data-plan="standard">
-            <span class="popular-badge"> MOST POPULAR </span>
+          <article class="pricing-card featured" data-plan="standard">
+            <span class="pricing-badge"> MOST POPULAR </span>
 
             <h3>Standard</h3>
 
-            <div class="plan-price">
-              <span class="currency">₦</span>45,000
+            <div class="price">₦45,000 <span>/month</span></div>
 
-              <small>/month</small>
-            </div>
-
-            <p class="plan-description">
+            <p class="pricing-description">
               For growing schools with more classes.
             </p>
 
-            <div class="plan-divider"></div>
+            <hr />
 
-            <ul class="plan-features">
+            <ul class="pricing-features">
               <li>
                 <i data-lucide="check"></i>
 
@@ -260,7 +262,10 @@
               </li>
             </ul>
 
-            <button class="btn btn-featured-plan" data-plan="standard">
+            <button
+              class="btn btn-primary btn-featured-plan"
+              data-plan="standard"
+            >
               Choose Plan
             </button>
           </article>
@@ -272,15 +277,15 @@
           <article class="pricing-card enterprise-plan" data-plan="enterprise">
             <h3>Enterprise</h3>
 
-            <div class="enterprise-price">Custom</div>
+            <div class="price">Custom</div>
 
-            <p class="plan-description">
+            <p class="pricing-description">
               For school networks &amp; institutions.
             </p>
 
-            <div class="plan-divider"></div>
+            <hr />
 
-            <ul class="plan-features">
+            <ul class="pricing-features">
               <li>
                 <i data-lucide="check"></i>
 
@@ -300,7 +305,7 @@
               </li>
             </ul>
 
-            <button class="btn btn-plan" data-plan="enterprise">
+            <button class="btn btn-primary btn-plan" data-plan="enterprise">
               Choose Plan
             </button>
           </article>
@@ -442,5 +447,6 @@
     </script>
 
     <script src="./js/subscription.js"></script>
+    <script src="./js/account-dropdown.js"></script>
   </body>
 </html>

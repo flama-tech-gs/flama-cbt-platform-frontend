@@ -497,8 +497,29 @@ ul {
   .hero-images,
   .foundation-content,
   .foundation-image {
-    width: 400px;
+    width: 100%;
     margin: 0 auto;
+  }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-images {
+    min-width: 0;
+  }
+
+  .hero-images > img {
+    max-width: 100%;
+  }
+
+  .hero-icon-vector {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .foundation {
+    overflow: hidden;
   }
 
   .partners,
@@ -678,6 +699,7 @@ MOBILE
   }
 
   .foundation-image {
+    width: 100%;
     margin: 0 auto 40px;
     order: 1;
   }

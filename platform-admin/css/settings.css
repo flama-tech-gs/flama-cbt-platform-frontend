@@ -582,3 +582,49 @@
     min-height: 82px;
   }
 }
+
+/* additional toast styles */
+
+/* ==========================================
+   TOAST
+========================================== */
+
+.settings-toast {
+  position: fixed;
+
+  right: 28px;
+  bottom: 28px;
+
+  z-index: 9999;
+
+  min-width: 230px;
+
+  padding: 13px 17px;
+
+  border-radius: 9px;
+
+  background: #2e8035;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.settings-toast.show {
+  opacity: 1;
+
+  transform: translateY(0);
+}

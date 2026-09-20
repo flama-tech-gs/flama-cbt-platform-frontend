@@ -99,12 +99,35 @@ function initializeCommentButtons() {
 
       if (!comment) return;
 
-      alert("Comment saved.");
+      showToast("Comment saved.");
 
       // TODO:
       // saveComment(questionId, comment)
     });
   });
+}
+
+function showToast(message) {
+  const existingToast = document.querySelector(".review-toast");
+
+  existingToast?.remove();
+
+  const toast = document.createElement("div");
+
+  toast.className = "review-toast";
+  toast.setAttribute("role", "status");
+  toast.innerHTML = `<i data-lucide="check-circle-2"></i><span>${message}</span>`;
+
+  document.body.appendChild(toast);
+  lucide.createIcons();
+
+  requestAnimationFrame(() => toast.classList.add("show"));
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+
+    setTimeout(() => toast.remove(), 220);
+  }, 2200);
 }
 
 /* ==========================================

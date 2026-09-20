@@ -271,6 +271,26 @@ document.getElementById("addStudentBtn").addEventListener("click", () => {
   // alert("Add Student");
 });
 
+const promoteAllButton = document.getElementById("promoteAllBtn");
+const disablePromoteAllButton = document.getElementById("disablePromoteAllBtn");
+
+promoteAllButton.addEventListener("click", () => {
+  const confirmed = confirm("Promote all students to the next class?");
+
+  if (!confirmed) return;
+
+  alert("All students are queued for promotion.");
+});
+
+disablePromoteAllButton.addEventListener("click", () => {
+  const isDisabled = promoteAllButton.disabled;
+
+  promoteAllButton.disabled = !isDisabled;
+  disablePromoteAllButton.textContent = isDisabled
+    ? "Disable Promote All"
+    : "Enable Promote All";
+});
+
 /*
 ==========================================
 INIT
