@@ -94,6 +94,11 @@ TABLE RENDERER
 function renderTable(data, tbodyId, badgeClass) {
   const tbody = document.getElementById(tbodyId);
 
+  if (!data.length) {
+    tbody.innerHTML = '<tr><td class="empty-filter-state" colspan="6">No questions match this filter.</td></tr>';
+    return;
+  }
+
   tbody.innerHTML = data
     .map(
       (exam) => `
@@ -125,11 +130,20 @@ function renderTable(data, tbodyId, badgeClass) {
     .join("");
 }
 
-renderTable(pendingExams, "pendingBody", "pending");
+function renderAllTables(term = "all") {
+  const filterByTerm = (exams) =>
+    term === "all" ? exams : exams.filter((exam) => exam.term === term);
 
-renderTable(activeExams, "activeBody", "active");
+  renderTable(filterByTerm(pendingExams), "pendingBody", "pending");
+  renderTable(filterByTerm(activeExams), "activeBody", "active");
+  renderTable(filterByTerm(pastExams), "pastBody", "completed");
+}
 
-renderTable(pastExams, "pastBody", "completed");
+renderAllTables();
+
+document.getElementById("termFilter").addEventListener("change", (event) => {
+  renderAllTables(event.target.value);
+});
 
 /*
 ==========================================

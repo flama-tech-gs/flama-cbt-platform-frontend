@@ -50,6 +50,37 @@
 }
 
 /* ==========================================
+   FILTER
+========================================== */
+
+.question-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.question-filter label {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.question-filter select {
+  min-width: 160px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #d8ded8;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-dark);
+  font: inherit;
+}
+
+.empty-filter-state {
+  color: var(--text-light);
+  text-align: center;
+}
+
+/* ==========================================
    SECTION
 ========================================== */
 
@@ -216,6 +247,15 @@ tbody tr:hover {
 @media (max-width: 576px) {
   .page-heading h2 {
     font-size: 1.4rem;
+  }
+
+  .question-filter {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .question-filter select {
+    width: 100%;
   }
 }
 

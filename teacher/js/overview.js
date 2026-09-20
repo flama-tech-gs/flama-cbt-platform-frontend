@@ -153,11 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <td>
 
-                <button class="table-action">
+                <button class="table-action" aria-label="View class details" title="View class details">
 
-                    <i data-lucide="eye"></i>
-
-                    View
+                    <i data-lucide="arrow-right"></i>
 
                 </button>
 

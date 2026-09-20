@@ -145,7 +145,7 @@ ${item.review}
 
 <td>
 
-<span class="badge ${getStatusClass(item.status)}">
+<span class="status-badge ${getStatusClass(item.status)}">
 
 ${item.status}
 
@@ -156,7 +156,8 @@ ${item.status}
 <td>
 
 <button
-class="edit-btn">
+class="edit-btn"
+type="button">
 
 Edit
 
@@ -169,3 +170,9 @@ Edit
 `,
   )
   .join("");
+
+document.querySelectorAll(".edit-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    window.location.href = "../edit-question/edit-question.html?question=1";
+  });
+});

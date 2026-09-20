@@ -124,10 +124,12 @@
 .ticket-search {
   position: relative;
 
-  flex: 0 0 392px;
+  flex: 0 1 392px;
+  min-width: 260px;
 }
 
-.ticket-search i {
+.ticket-search i,
+.ticket-search svg {
   position: absolute;
 
   left: 18px;
@@ -177,6 +179,9 @@
 .ticket-filters {
   display: flex;
   align-items: center;
+
+  flex: 1;
+  min-width: 0;
 
   gap: 12px;
 }
@@ -444,16 +449,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .ticket-toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .ticket-search {
-    flex: none;
-    width: 100%;
-  }
-
   .ticket-filters {
     overflow-x: auto;
   }
@@ -470,6 +465,16 @@
 
   .support-stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ticket-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ticket-search {
+    flex: none;
+    width: 100%;
   }
 
   .ticket-filters {

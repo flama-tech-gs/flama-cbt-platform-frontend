@@ -68,7 +68,7 @@ tbody tr:hover {
    STATUS BADGES
 ========================================== */
 
-.badge {
+.status-badge {
   display: inline-flex;
 
   align-items: center;
@@ -82,33 +82,35 @@ tbody tr:hover {
   font-size: 0.85rem;
 
   font-weight: 600;
+
+  white-space: nowrap;
 }
 
-.badge.pending {
+.status-badge.pending {
   background: #fff4dd;
 
   color: #d48806;
 }
 
-.badge.active {
+.status-badge.active {
   background: #e8f8e8;
 
   color: #2e7d32;
 }
 
-.badge.correction {
+.status-badge.correction {
   background: #ffe8e8;
 
   color: #d32f2f;
 }
 
-.badge.paused {
+.status-badge.paused {
   background: #eeeeee;
 
   color: #666;
 }
 
-.badge.completed {
+.status-badge.completed {
   background: #f1f1f1;
 
   color: #777;
