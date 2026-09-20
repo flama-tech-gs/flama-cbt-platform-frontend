@@ -172,3 +172,7 @@ tbody tr:hover {
   margin: 0 auto;
   padding: 0 40px 32px 40px;
 }
+
+.badge-pending {
+  text-wrap: no-wrap;
+}

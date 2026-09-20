@@ -356,10 +356,13 @@ SCHOOL LOGO
   display: flex;
 
   align-items: center;
+
+  width: 400px;
 }
 
 .dot {
   color: #c5ccd3;
+  padding: 0 6px;
 }
 
 /*==============================================================

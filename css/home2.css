@@ -387,7 +387,7 @@ CALL TO ACTION
 .cta-image img {
   max-width: 420px;
   width: 100%;
-  animation: floatImage 5s ease-in-out infinite;
+  /* animation: floatImage 5s ease-in-out infinite; */
 }
 
 /*========================*/
